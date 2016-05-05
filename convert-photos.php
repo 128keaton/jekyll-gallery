@@ -68,9 +68,6 @@ The export option will accept values like:
                     ],
                     Yaml::parse($photoSplit[0])
                 );
-
-                $photo['id'] = substr(sha1_file($photo['path']), 0, 7) . '-' . preg_replace('/(-| )+/', '-', preg_replace('/[^a-z0-9 ]/i', '-', preg_replace('/\'/', '', strtolower(preg_replace('/\p{Mn}/u', '', Normalizer::normalize($photo['title'], Normalizer::FORM_KD))))));
-
                 $photo['date'] = \DateTime::createFromFormat(
                     'l, F j, Y \a\t g:i:s A',
                     $photo['date']
