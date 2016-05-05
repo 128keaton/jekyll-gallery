@@ -1,10 +1,14 @@
 on run argv
 	
 	tell application "Photos"
-		set vAlbum to first item of (get every album whose name is (item 1 of argv))
+	
+		set albumName to (item 1 of argv)
+		set testingName to "Instagram"
+		set finalVar to albumName
+		set vAlbum to first item of (get every album whose name is finalVar)
 		set vPhotos to get every media item in vAlbum
 		
-		set theFolderName to (item 1 of argv)
+		set theFolderName to finalVar
 		set theDestinationRootFolder to "/Volumes/Bytes of Terror 2/Website local copy/Jekyll/Galleries/" & theFolderName as POSIX file as text
 		set phpRootFolder to "/Volumes/Bytes of Terror 2/Website local copy/Jekyll/Galleries/" & theFolderName as text
 		--Alternative
@@ -36,6 +40,8 @@ on run argv
 				"path: " & phpRootFolder & "/" & filename of vPhoto & "
 " & Â
 				"id: " & id of vPhoto & "
+" & Â
+				"title: " & name of vPhoto & "
 "
 		end repeat
 		

@@ -11,6 +11,9 @@ The `convert-photos.php` has a version that doesn't use *Normalizer*
 
 ##Photos.app:
 	$ osascript export-photos.applescript 'Instagram' |  php convert-photos.php instagram --export 96x96 --export 200x200 --export 640 --export 1280
+or:
+
+	$ osascript export-photos.applescript 'Instagram' |  php convert.php instagram --export 96x96 --export 200x200 --export 640 --export 1280
 	
 ##iPhoto.app:
 	$ osascript ../jekyll-gallery/export-iphoto.applescript 'London-Iceland Trip' | \ 
