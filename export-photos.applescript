@@ -1,7 +1,7 @@
 on run argv
 	
 	tell application "Photos"
-	
+		
 		set albumName to (item 1 of argv)
 		set testingName to "Instagram"
 		set finalVar to albumName
@@ -27,11 +27,13 @@ on run argv
 		
 		set output to ""
 		repeat with vPhoto in vPhotos
-			
+			set locationList to location of vPhoto
 			set output to output & Â
 				"altitude: " & altitude of vPhoto & "
 " & Â
-				"location: " & location of vPhoto & "
+				"latitude: " & item 1 of locationList & "
+" & Â
+				"longitude: " & item 2 of locationList & "
 " & Â
 				"name: " & name of vPhoto & "
 " & Â
@@ -41,7 +43,10 @@ on run argv
 " & Â
 				"id: " & id of vPhoto & "
 " & Â
-				"title: " & name of vPhoto & "
+				"title: " & filename of vPhoto & "
+------
+" & description of vPhoto & "
+------------
 "
 		end repeat
 		
